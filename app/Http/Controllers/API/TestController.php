@@ -31,6 +31,10 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
+        return response()->json([
+            "data"=>"Projet GEP_UTA store"
+
+        ]);
         //
     }
 
