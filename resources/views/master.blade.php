@@ -12,6 +12,7 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- site icon -->
       <link rel="icon" href="{{ asset('assets_front/images/fevicon.png') }}" type="image/png" />
       <!-- bootstrap css -->
@@ -67,6 +68,7 @@
             </div>
          </div>
       </div>
+
       <!-- jQuery -->
       <script src="{{ asset('assets_front/js/jquery.min.js') }}"></script>
       <script src="{{ asset('assets_front/js/popper.min.js') }}"></script>
@@ -91,6 +93,9 @@
       </script>
       <!-- custom js -->
       <script src="{{ asset('assets_front/js/custom.js') }}"></script>
+      <script src="{{ asset('assets_front/js/axios.js') }}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       @yield('script_js')
+
    </body>
 </html>

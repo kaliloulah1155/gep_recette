@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\registerController;
 use App\Http\Controllers\Front\semestrecontroller;
 use App\Http\Controllers\Front\userController;
 use App\Http\Controllers\Front\PwdController;
+use App\Http\Controllers\Front\ActionController;
 
 
 
@@ -38,4 +39,4 @@ Route::get('/semestre', [semestreController::class, 'index']);
 Route::get('/user', [userController::class, 'index']);
 Route::get('/forgotpwd',[PwdController::class,'index']) ->name('forgotpwd');
 Route::get('/newpwd',[PwdController::class,'index1']) ->name('newpwd');
-
+Route::get('/action',[ActionController::class,'index']);

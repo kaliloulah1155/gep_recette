@@ -1,47 +1,50 @@
 @extends('master')
 
-@section('title','Inscription')
-@section('title_content','Inscription')
+@section('title','Action')
+@section('title_content','Action')
 
 @section('content')
 
 <div class="full_container d-flex justify-content-center">
-         <div class="container">
+         <div class="container ">
             <div class="center verticle_center full_height">
                <div class="login_section">
                   <div class="logo_login">
                      <div class="center">
-                        <img width="210" src="{{asset('assets_front/images/logo/logo.png')}}" alt="#" />
+                        <h1 class="theme" >Enregistrer Une Action</h1>
                      </div>
                   </div>
                   <div class="login_form">
                      <div class="theme">
 
                      </div>
-                     <form id="reponse_user">
+                     <form id="reponse_action" >
                         <fieldset>
                             <div class="field">
-                                <label class="label_field">Nom</label>
-                                <input type="text" name="nom" id="nom" placeholder="Nom" />
+                                <label class="label_field">Libelle</label>
+                                <input type="text" name="libelle" id="libele" placeholder="Libelle" />
                              </div>
                              <div class="field">
-                                <label class="label_field">Prenom</label>
-                                <input type="text" name="prenom" id="prenom" placeholder="Prenom" />
+                                <label class="label_field">Icon</label>
+                                <input type="text" name="icon" id="icon" placeholder="Icon" />
                              </div>
                            <div class="field">
-                              <label class="label_field"> Adresse Email</label>
-                              <input type="email" name="email" id="email" placeholder="E-mail" />
+                              <label class="label_field">Position</label>
+                              <input type="number" name="position" id="position" placeholder="Position" />
                            </div>
                            <div class="field">
-                              <label class="label_field">Mot de passe</label>
-                              <input type="password" name="password" id="password" placeholder="Mot de passe" />
+                              <label class="label_field">Statut</label>
+                              <select name="statut" id="statut">
+                                <option value="1" >Activé</option>
+                                <option value="0" >Desactivé</option>
+                              </select>
                            </div>
                            <div class="field">
-                            <label class="label_field">Mot de passe</label>
-                            <input type="password" name="password" placeholder="Verifier mot de passe" />
+                            <label class="label_field">Code</label>
+                            <input type="text" name="code" placeholder="Code" />
                          </div>
-                           <div class="field margin_0">
-                              <button class="main_bt">Envoyer</button>
+                           <div class="field margin_0 d-flex justify-content-center">
+                              <button class="main_bt ">Envoyer</button>
                            </div>
                         </fieldset>
                      </form>
@@ -51,16 +54,19 @@
          </div>
       </div>
       <script src="{{asset('assets_front/js/mdp.js')}}"></script>
-      @section('script_js')
+     
+
+@endsection
+@section('script_js')
 <script>
 // recupération de l'url
 const getBaseURL=()=>{
         return location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
     }
-      //utiliser pour lier la page register et la bd
+      //utiliser pour lier la page action et la bd
       const add_action = async () => {
            try {
-                   const response = await axios.post(getBaseURL() + 'api/user', new FormData(document.getElementById("reponse_user")), {
+                   const response = await axios.post(getBaseURL() + 'api/cnx', new FormData(document.getElementById("reponse_action")), {
                        headers: {
                            'Content-Type': 'application/json',
                        }
@@ -94,4 +100,4 @@ $(document).on('click', '.main_bt', function(e) {
  });
  //
 </script>
-      @endsection
+@endsection

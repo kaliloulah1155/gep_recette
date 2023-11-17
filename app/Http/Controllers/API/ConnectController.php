@@ -8,13 +8,14 @@ use  App\Models\Action;
 
 class ConnectController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+       
         Action::create([
-            'libele'=>'ajouter',
-            'code'=>'ADD',
-            'position'=>1,
-            'icon'=>'fa fa-user', 
-            'statut'=>1,
+            'libele'=>$request->libelle,
+            'code'=>$request->code,
+            'position'=>$request->position,
+            'icon'=>$request->icon, 
+            'statut'=>intval($request->statut),
             
 
         ]);
